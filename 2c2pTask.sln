@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2c2pTask.UI", "2c2pTask\2c2pTask.UI.csproj", "{2D094053-5DA3-44AA-ABE1-9A0A3B617953}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2c2pTask.UI", "2c2pTask\2c2pTask.UI.csproj", "{2D094053-5DA3-44AA-ABE1-9A0A3B617953}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2c2pTask.Models", "2c2pTask.Models\2c2pTask.Models.csproj", "{E7B399F4-5185-421D-922B-8ED16B8AED09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2c2pTask.Models", "2c2pTask.Models\2c2pTask.Models.csproj", "{E7B399F4-5185-421D-922B-8ED16B8AED09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2c2pTask.Repository", "2c2pTask.Repository\2c2pTask.Repository.csproj", "{E7A95181-A393-4ABB-8239-30754D21CD80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E7B399F4-5185-421D-922B-8ED16B8AED09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7B399F4-5185-421D-922B-8ED16B8AED09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7B399F4-5185-421D-922B-8ED16B8AED09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A95181-A393-4ABB-8239-30754D21CD80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A95181-A393-4ABB-8239-30754D21CD80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A95181-A393-4ABB-8239-30754D21CD80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A95181-A393-4ABB-8239-30754D21CD80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,9 @@
+using _2c2pTask.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +30,8 @@ namespace _2c2pTask
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TransactionsDb")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
