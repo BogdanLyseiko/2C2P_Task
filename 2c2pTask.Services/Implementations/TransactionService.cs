@@ -1,5 +1,6 @@
 ﻿using _2c2pTask.Models.Constants;
 using _2c2pTask.Models.Entities;
+using _2c2pTask.Models.Enums;
 using _2c2pTask.Models.Models;
 using _2c2pTask.Repository.Interfaces;
 using _2c2pTask.Services.Interfaces;
@@ -54,6 +55,24 @@ namespace _2c2pTask.Services.Implementations
             }
 
             return resultModel.IsError ? resultModel : transactionRepository.AddRange(transactions);
+        }
+
+        public IEnumerable<TransactionViewModel> GetByCurrency(string currencyCode)
+        {
+            return transactionRepository.GetTransactions(x => x.CurrencyCode == currencyCode)
+                                        .Select(x => (TransactionViewModel)x);
+        }
+
+        public IEnumerable<TransactionViewModel> GetByDateRange(DateTime startDate, DateTime endDate)
+        {
+            return transactionRepository.GetTransactions(x => x.TransactionDate>= startDate && x.TransactionDate <= endDate)
+                                          .Select(x => (TransactionViewModel)x);
+        }
+
+        public IEnumerable<TransactionViewModel> GetByStatus(StatusesEnum status)
+        {
+            return transactionRepository.GetTransactions(x => x.StatusID == (int)status)
+                                          .Select(x => (TransactionViewModel)x);
         }
     }
 }

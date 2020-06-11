@@ -2,6 +2,7 @@
 using _2c2pTask.Models.Entities;
 using _2c2pTask.Models.Models;
 using _2c2pTask.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -44,7 +45,7 @@ namespace _2c2pTask.Repository.Implementations
         {
             if (predicate != null)
             {
-                return dbContext.Transactions.Where(predicate);
+                return dbContext.Transactions.Where(predicate).Include(x => x.Status);
             }
 
             return dbContext.Transactions;
