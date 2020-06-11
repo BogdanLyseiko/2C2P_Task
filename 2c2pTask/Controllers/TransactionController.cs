@@ -19,12 +19,17 @@ namespace _2c2pTask.Controllers
 
         [HttpPost]
         [Route("BulkUpload")]
-        public ActionResult<string> BulkUpload([MaxFileSize(Constants.MAX_FILE_SIZE)] 
+        public ActionResult<string> BulkUpload([MaxFileSize(Constants.MAX_FILE_SIZE)]
                                                [AllowedExtensionsAttribute(new string[] { Constants.CSV_FORMAT, Constants.XML_FORMAT })]
                                                 IFormFile file)
         {
-            transactionService.AddTransactionsByFile(file);
-            return "test response";
+            var result = transactionService.AddTransactionsByFile(file);
+            if (result.IsError)
+            {
+                return BadRequest(result.Errors);
+            }
+
+            return Ok();
         }
     }
 }

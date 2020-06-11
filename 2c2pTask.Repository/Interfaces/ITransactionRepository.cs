@@ -1,4 +1,5 @@
 ﻿using _2c2pTask.Models.Entities;
+using _2c2pTask.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace _2c2pTask.Repository.Interfaces
 {
     public interface ITransactionRepository
     {
-        void AddRange(IEnumerable<Transaction> transactions);
+        ResultModel AddRange(IEnumerable<Transaction> transactions);
         IQueryable<Transaction> GetTransactions(Expression<Func<Transaction, bool>> predicate = null);
     }
 }

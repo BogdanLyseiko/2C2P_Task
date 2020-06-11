@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using _2c2pTask.Models.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace _2c2pTask.Services.Interfaces
 {
     public interface ITransactionService
     {
-        public void AddTransactionsByFile(IFormFile transactionsFile);
+        public ResultModel AddTransactionsByFile(IFormFile transactionsFile);
     }
 }

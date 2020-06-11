@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using _2c2pTask.Models.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace _2c2pTask.Models.Entities
@@ -11,7 +12,16 @@ namespace _2c2pTask.Models.Entities
         public DateTime TransactionDate { get; set; }
         public int StatusID { get; set; }
         public Status Status { get; set; }
+        public bool IsValid()
+        {
+            bool isCurrencyCodeValid = CurrencyValidationHelper.IsCurrencyNumberValid(CurrencyCode) && !string.IsNullOrEmpty(CurrencyCode);
+            if (string.IsNullOrEmpty(ID) || Amount < 0 || !isCurrencyCodeValid)
+            {
+                return false;
+            }
 
+            return true;
+        }
         public static void Configure(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Transaction>(entity =>

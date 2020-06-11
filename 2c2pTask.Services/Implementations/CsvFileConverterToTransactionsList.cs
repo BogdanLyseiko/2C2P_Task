@@ -31,7 +31,7 @@ namespace _2c2pTask.Services.Implementations
 
         private Transaction cSVLineToTransaction(string csvLine)
         {
-            string[] values = csvLine.Split(',');
+            string[] values = csvLine?.Split(',');
             string dbStatusString = cSVStatusToDbStatus(values[4]);
             var dbStatusID = (int)Enum.Parse(typeof(StatusesEnum), dbStatusString);
 

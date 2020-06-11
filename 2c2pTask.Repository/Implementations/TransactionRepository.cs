@@ -1,5 +1,8 @@
-﻿using _2c2pTask.Models.Entities;
+﻿using _2c2pTask.Models.Constants;
+using _2c2pTask.Models.Entities;
+using _2c2pTask.Models.Models;
 using _2c2pTask.Repository.Interfaces;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +13,36 @@ namespace _2c2pTask.Repository.Implementations
     public class TransactionRepository : ITransactionRepository
     {
         private DatabaseContext dbContext;
-        public TransactionRepository (DatabaseContext dbContext)
+        private ILogger logger;
+
+        public TransactionRepository(DatabaseContext dbContext, ILogger<TransactionRepository> logger)
         {
+            this.logger = logger;
             this.dbContext = dbContext;
         }
-        public void AddRange(IEnumerable<Transaction> transactions)
+        public ResultModel AddRange(IEnumerable<Transaction> transactions)
         {
-            dbContext.AddRange(transactions);
-            dbContext.SaveChanges();
+            ResultModel resultModel = new ResultModel();
+            try
+            {
+                dbContext.AddRange(transactions);
+                dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("TransactionRepository.AddRange", ex);
+                resultModel.IsError = true;
+                resultModel.Errors.Add(Constants.ADDING_DATA_ERROR);
+
+                return resultModel;
+            }
+
+            return resultModel;
         }
 
         public IQueryable<Transaction> GetTransactions(Expression<Func<Transaction, bool>> predicate = null)
         {
-            if(predicate != null)
+            if (predicate != null)
             {
                 return dbContext.Transactions.Where(predicate);
             }
