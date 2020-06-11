@@ -1,4 +1,5 @@
 ﻿using _2c2pTask.Models.Entities;
+using _2c2pTask.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,9 @@ namespace _2c2pTask.Repository
             Status.Configure(modelBuilder);
 
             modelBuilder.Entity<Status>().HasData(
-                new { ID = 1, Name = "Approved" },
-                new { ID = 2, Name = "Rejected" },
-                new { ID = 3, Name = "Done" });
+                new { ID = (int)StatusesEnum.Approved, Name = StatusesEnum.Approved.ToString() },
+                new { ID = (int)StatusesEnum.Rejected, Name = StatusesEnum.Rejected.ToString() },
+                new { ID = (int)StatusesEnum.Done, Name = StatusesEnum.Done.ToString() });
         }
     }
 }

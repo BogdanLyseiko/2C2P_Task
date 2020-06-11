@@ -35,6 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\2c2pTask.Models\2c2pTask.Models.csproj" />
     <ProjectReference Include="..\2c2pTask.Repository\2c2pTask.Repository.csproj" />
+    <ProjectReference Include="..\2c2pTask.Services\2c2pTask.Services.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

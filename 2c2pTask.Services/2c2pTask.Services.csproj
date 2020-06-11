@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>_2c2pTask.Services</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\2c2pTask.Models\2c2pTask.Models.csproj" />
+    <ProjectReference Include="..\2c2pTask.Repository\2c2pTask.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

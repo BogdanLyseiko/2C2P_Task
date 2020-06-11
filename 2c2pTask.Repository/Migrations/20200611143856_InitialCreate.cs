@@ -41,6 +41,21 @@ namespace _2c2pTask.Repository.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Statuses",
+                columns: new[] { "ID", "Name" },
+                values: new object[] { 1, "Approved" });
+
+            migrationBuilder.InsertData(
+                table: "Statuses",
+                columns: new[] { "ID", "Name" },
+                values: new object[] { 2, "Rejected" });
+
+            migrationBuilder.InsertData(
+                table: "Statuses",
+                columns: new[] { "ID", "Name" },
+                values: new object[] { 3, "Done" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_StatusID",
                 table: "Transactions",

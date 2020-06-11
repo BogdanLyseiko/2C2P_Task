@@ -10,8 +10,8 @@ using _2c2pTask.Repository;
 namespace _2c2pTask.Repository.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200611065950_AddedInitialDataToStatusTable")]
-    partial class AddedInitialDataToStatusTable
+    [Migration("20200611143856_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
